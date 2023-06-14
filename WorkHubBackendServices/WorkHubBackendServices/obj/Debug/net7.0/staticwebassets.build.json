@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "t4tisCB+KISdYykfPnIFX5RT+IsYuZy7+DQ7LXMMuOw=",
+  "Source": "WorkHubBackendServices",
+  "BasePath": "_content/WorkHubBackendServices",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
