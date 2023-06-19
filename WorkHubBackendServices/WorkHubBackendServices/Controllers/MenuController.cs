@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using WorkHubBackEndServices.Data;
 using WorkHubBackEndServices.Interfaces;
 using WorkHubBackEndServices.Models;
+using WorkHubBackEndServices.Repository;
 
 namespace WorkHubBackEndServices.Controllers
 {
@@ -13,31 +14,35 @@ namespace WorkHubBackEndServices.Controllers
     public class MenuController : ControllerBase
     {
         
-        private readonly ICategoryRepository _repository;
+        private readonly IGenericRepository<Category> _categoryRepo;
+        private readonly IGenericRepository<Item> _itemRepo;
 
-        public MenuController(ICategoryRepository repository)
+        public MenuController(IGenericRepository<Category> categoryRepo, IGenericRepository<Item> itemRepo)
         {
-            _repository = repository;
+            _categoryRepo = categoryRepo;
+            _itemRepo = itemRepo;
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<Category>>> GetCatogories()
         {
-            IReadOnlyList<Category> catogories = await _repository.GetCategoreiesAsync();
+            IReadOnlyList<Category> catogories = await _categoryRepo.ListAllAsync();
 
             return Ok(catogories);
         }
 
         [HttpGet("{id}")]
-        public async   Task<ActionResult<Item>> GetItem(int id)
+        public async Task<ActionResult<Item>> GetItem(int id)
         {
-            return await _repository.GetItemByIdAsync(id);
+            var spec = new ItemsWithCategorySpecification(id);
+            return await _itemRepo.GetEntityWithSpec(spec);
         }
 
         [HttpGet("items")]
         public async Task<ActionResult<IReadOnlyList<Item>>> GetItems()
         {
-            return Ok(await _repository.GetItemsAsync());
+            var spec = new ItemsWithCategorySpecification();
+            return Ok(await _itemRepo.ListAsync(spec));
         }
     }
 }
