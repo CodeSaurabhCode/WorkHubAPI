@@ -1,0 +1,55 @@
+﻿[
+  {
+    "Name": "Veggie Burger",
+    "Description": "Delicious vegetarian burger with fresh vegetables and sauce",
+    "Price": 120,
+    "CategoryId": 1
+  },
+  {
+ 
+    "Name": "Paneer Tikka",
+    "Description": "Marinated cottage cheese cubes grilled with spices",
+    "Price": 180,
+    "CategoryId": 1
+  },
+  {
+
+    "Name": "Butter Chicken",
+    "Description": "Tender chicken cooked in a rich and creamy tomato-based sauce",
+    "Price": 250,
+    "CategoryId": 2
+  },
+  {
+
+    "Name": "Masala Dosa",
+    "Description": "Thin and crispy South Indian crepe filled with spicy potato masala",
+    "Price": 80,
+    "CategoryId": 1
+  },
+  {
+
+    "Name": "Tandoori Chicken",
+    "Description": "Chicken marinated in yogurt and spices, cooked in a tandoor",
+    "Price": 280,
+    "CategoryId": 2
+  },
+  {
+
+    "Name": "Chole Bhature",
+    "Description": "Puffed fried bread served with spicy chickpea curry",
+    "Price": 110,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Palak Paneer",
+    "Description": "Soft cottage cheese cubes cooked in spinach gravy",
+    "Price": 200,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Chicken Biryani",
+    "Description": "Fragrant rice dish cooked with meat or vegetables and aromatic spices",
+    "Price": 220,
+    "CategoryId": 2
+  }
+]

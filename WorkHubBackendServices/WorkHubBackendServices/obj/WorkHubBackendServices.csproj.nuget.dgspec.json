@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkHubAPI\\WorkHubBackendServices\\WorkHubBackendServices\\WorkHubBackendServices.csproj": {}
+    "D:\\WorkHubAPI\\WorkHubBackEndServices\\WorkHubBackEndServices\\WorkHubBackEndServices.csproj": {}
   },
   "projects": {
-    "D:\\WorkHubAPI\\WorkHubBackendServices\\WorkHubBackendServices\\WorkHubBackendServices.csproj": {
+    "D:\\WorkHubAPI\\WorkHubBackEndServices\\WorkHubBackEndServices\\WorkHubBackEndServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkHubAPI\\WorkHubBackendServices\\WorkHubBackendServices\\WorkHubBackendServices.csproj",
-        "projectName": "WorkHubBackendServices",
-        "projectPath": "D:\\WorkHubAPI\\WorkHubBackendServices\\WorkHubBackendServices\\WorkHubBackendServices.csproj",
+        "projectUniqueName": "D:\\WorkHubAPI\\WorkHubBackEndServices\\WorkHubBackEndServices\\WorkHubBackEndServices.csproj",
+        "projectName": "WorkHubBackEndServices",
+        "projectPath": "D:\\WorkHubAPI\\WorkHubBackEndServices\\WorkHubBackEndServices\\WorkHubBackEndServices.csproj",
         "packagesPath": "C:\\Users\\KSHIRSAGARSAURABH\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkHubAPI\\WorkHubBackendServices\\WorkHubBackendServices\\obj\\",
+        "outputPath": "D:\\WorkHubAPI\\WorkHubBackEndServices\\WorkHubBackEndServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,20 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.7, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

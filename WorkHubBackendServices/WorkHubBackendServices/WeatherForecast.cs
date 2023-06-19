@@ -1,4 +1,4 @@
-namespace WorkHubBackendServices
+namespace WorkHubBackEndServices
 {
     public class WeatherForecast
     {

@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "t4tisCB+KISdYykfPnIFX5RT+IsYuZy7+DQ7LXMMuOw=",
-  "Source": "WorkHubBackendServices",
-  "BasePath": "_content/WorkHubBackendServices",
+  "Hash": "1L7I8V6uM9BzEtvcnuL38fPGZGswyBDf7iHmWGqbWR8=",
+  "Source": "WorkHubBackEndServices",
+  "BasePath": "_content/WorkHubBackEndServices",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

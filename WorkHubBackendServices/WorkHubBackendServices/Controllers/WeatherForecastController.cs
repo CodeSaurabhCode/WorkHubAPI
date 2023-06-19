@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace WorkHubBackendServices.Controllers
+namespace WorkHubBackEndServices.Controllers
 {
     [ApiController]
     [Route("[controller]")]
