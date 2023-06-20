@@ -36,10 +36,17 @@ namespace WorkHubBackEndServices.Repository
             return await ApplySpecification(spec).ToListAsync();
         }
 
+        public async Task<int> CountAsync(ISpecifications<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
+        }
+
         private IQueryable<T> ApplySpecification(ISpecifications<T> spec)
         {
             return SpecificationEvaluater<T>.GetQuery(_db.Set<T>().AsQueryable(), spec);
 
         }
+
+        
     }
 }

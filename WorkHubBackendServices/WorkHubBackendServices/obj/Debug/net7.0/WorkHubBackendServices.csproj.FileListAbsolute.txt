@@ -76,3 +76,5 @@ D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\run
 D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\Data\SeedData\CategoryData.json
 D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\Data\SeedData\MenuItems.json
+D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\AutoMapper.dll
+D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

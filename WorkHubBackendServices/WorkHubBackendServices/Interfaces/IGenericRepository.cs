@@ -11,5 +11,7 @@ namespace WorkHubBackEndServices.Interfaces
 
         Task<IReadOnlyList<T>> ListAsync(ISpecifications<T> spec);
 
+        Task<int> CountAsync(ISpecifications<T> spec);
+
     }
 }
