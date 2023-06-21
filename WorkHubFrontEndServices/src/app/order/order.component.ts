@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../shared/models/items';
 import { OrderService } from './order.service';
 import { Category } from '../shared/models/category';
+import { OrderParams } from '../shared/models/orderParams';
 
 @Component({
   selector: 'app-order',
@@ -12,13 +13,14 @@ export class OrderComponent implements OnInit {
 
   Items:Item[] = [];
   Categories:Category[] = [];
-  CategoryIdSelected = 0;
-  sortSelected = "name";
+  orderParams = new OrderParams();
   sortOptions = [
     {name : "Aplhabetically", value: "name"},
     {name : "Price: Low to High", value: "priceAsc"},
     {name : "Price: High to Low", value: "PriceDesc"}
   ]
+
+  totalCount = 0;
 
   constructor(private orderService : OrderService){}
 
@@ -28,8 +30,13 @@ export class OrderComponent implements OnInit {
   }
 
   getItems(){
-    this.orderService.getItems(this.CategoryIdSelected, this.sortSelected).subscribe({
-      next : responce => this.Items = responce.data,
+    this.orderService.getItems(this.orderParams).subscribe({
+      next : responce => {
+        this.Items = responce.data;
+        this.orderParams.pageNumber = responce.pageIndex;
+        this.orderParams.pageSize = responce.pageSize;
+        this.totalCount = responce.count;
+      },
       error : error => console.log(error)
     })
   }
@@ -42,14 +49,22 @@ export class OrderComponent implements OnInit {
   }
 
   onCategorySelected(categoryId: number){
-    this.CategoryIdSelected = categoryId;
+    this.orderParams.categoryId = categoryId;
+    this.orderParams.pageNumber = 1;
     this.getItems();
   }
 
   onSortSelected(event: any){
-    this.sortSelected = event.target.value;
+    this.orderParams.sort = event.target.value;
     this.getItems();
 
+  }
+
+  onPageChanged(event:any){
+    if (this.orderParams.pageNumber !== event){
+      this.orderParams.pageNumber = event;
+      this.getItems();
+    }
   }
 
 }

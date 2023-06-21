@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Pagination } from '../shared/models/pagination';
 import { Item } from '../shared/models/items';
 import { Category } from '../shared/models/category';
+import { OrderParams } from '../shared/models/orderParams';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,17 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  getItems(CategoryId?:number, sort?:string){
+  getItems(orderParams: OrderParams){
     let params = new HttpParams();
-    if (CategoryId) params = params.append('CategoryId', CategoryId)
-    if (sort) params = params.append('sort', sort)
+    if (orderParams.categoryId>0) params = params.append('CategoryId', orderParams.categoryId)
+    params = params.append('sort', orderParams.sort)
+    params = params.append('pageIndex', orderParams.pageNumber)
+    params = params.append('pageSize', orderParams.pageSize)
     return this.http.get<Pagination<Item[]>>(this.baseUrl + "Menu/items", {params});
+  }
+
+  getItem(id:number){
+    return this.http.get<Item>(this.baseUrl + "Menu/" + id);
   }
 
   getCategory(){
