@@ -5,7 +5,7 @@ import { OrderComponent } from './order/order.component';
 import { ItemDetailsComponent } from './order/item-details/item-details.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
+  {path:'', component:HomeComponent, data : {breadcrumb : 'Home'}},
   {path:'order', loadChildren:() => import('./order/order.module').then(m => m.OrderModule)},
   {path:'**', redirectTo:'', pathMatch:'full'}
 ];

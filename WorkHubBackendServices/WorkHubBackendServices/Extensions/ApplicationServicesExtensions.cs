@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 using WorkHubBackEndServices.Data;
 using WorkHubBackEndServices.Errors;
 using WorkHubBackEndServices.Interfaces;
@@ -15,8 +16,13 @@ namespace WorkHubBackEndServices.Extensions
             {
                 option.UseSqlServer(config.GetConnectionString("DefaultSQLConnection"));
             });
-
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+            {
+                var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
+                return ConnectionMultiplexer.Connect(options);
+            });
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

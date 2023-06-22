@@ -78,3 +78,5 @@ D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\Dat
 D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\Data\SeedData\MenuItems.json
 D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\AutoMapper.dll
 D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
+D:\WorkHubAPI\WorkHubBackEndServices\WorkHubBackEndServices\bin\Debug\net7.0\StackExchange.Redis.dll
