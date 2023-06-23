@@ -7,6 +7,7 @@ import { ItemDetailsComponent } from './order/item-details/item-details.componen
 const routes: Routes = [
   {path:'', component:HomeComponent, data : {breadcrumb : 'Home'}},
   {path:'order', loadChildren:() => import('./order/order.module').then(m => m.OrderModule)},
+  {path:'basket', loadChildren:() => import('./basket/basket.module').then(m => m.BasketModule)},
   {path:'**', redirectTo:'', pathMatch:'full'}
 ];
 

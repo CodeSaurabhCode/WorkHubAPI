@@ -37,10 +37,5 @@ namespace WorkHubBackEndServices.Repository
 
 
         }
-
-        Task IBasketRepository.DeleteBasketAsync(string basketId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

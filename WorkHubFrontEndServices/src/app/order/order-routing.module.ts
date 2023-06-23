@@ -6,7 +6,7 @@ import { ItemDetailsComponent } from './item-details/item-details.component';
 
 const routes: Routes = [
   {path:'', component:OrderComponent},
-  {path:':id', component:ItemDetailsComponent},
+  {path:':id', component:ItemDetailsComponent, data: {breadcrumb:{alias : 'itemDetails'}}},
 ]
 
 @NgModule({

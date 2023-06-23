@@ -11,7 +11,6 @@ namespace WorkHubBackEndServices.Interfaces
             (!itemParams.CategoryId.HasValue || x.CategoryId == itemParams.CategoryId))
         {
             AddInclude(x => x.Category);
-            AddOrderBy(x => x.Name);
             ApplyPaging(itemParams.PageSize * (itemParams.PageIndex- 1), itemParams.PageSize);
 
             if (!string.IsNullOrEmpty(itemParams.Sort))

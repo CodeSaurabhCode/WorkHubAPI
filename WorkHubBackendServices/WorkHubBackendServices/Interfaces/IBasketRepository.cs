@@ -8,6 +8,6 @@ namespace WorkHubBackEndServices.Interfaces
 
         Task<EmployeeBasket> UpdateBasketAsync(EmployeeBasket basket);
 
-        Task DeleteBasketAsync(string basketId);
+        Task<bool> DeleteBasketAsync(string basketId);
     }
 }
