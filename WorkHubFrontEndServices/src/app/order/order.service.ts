@@ -17,7 +17,6 @@ export class OrderService {
   getItems(orderParams: OrderParams){
     let params = new HttpParams();
     if (orderParams.categoryId>0) params = params.append('CategoryId', orderParams.categoryId)
-    params = params.append('sort', orderParams.sort)
     params = params.append('pageIndex', orderParams.pageNumber)
     params = params.append('pageSize', orderParams.pageSize)
     return this.http.get<Pagination<Item[]>>(this.baseUrl + "Menu/items", {params});

@@ -14,11 +14,6 @@ export class OrderComponent implements OnInit {
   Items:Item[] = [];
   Categories:Category[] = [];
   orderParams = new OrderParams();
-  sortOptions = [
-    {name : "Aplhabetically", value: "name"},
-    {name : "Price: Low to High", value: "priceAsc"},
-    {name : "Price: High to Low", value: "PriceDesc"}
-  ]
 
   totalCount = 0;
 
@@ -52,12 +47,6 @@ export class OrderComponent implements OnInit {
     this.orderParams.categoryId = categoryId;
     this.orderParams.pageNumber = 1;
     this.getItems();
-  }
-
-  onSortSelected(event: any){
-    this.orderParams.sort = event.target.value;
-    this.getItems();
-
   }
 
   onPageChanged(event:any){
