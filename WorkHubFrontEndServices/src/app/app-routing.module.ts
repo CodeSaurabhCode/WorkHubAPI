@@ -8,6 +8,7 @@ const routes: Routes = [
   {path:'', component:HomeComponent, data : {breadcrumb : 'Home'}},
   {path:'order', loadChildren:() => import('./order/order.module').then(m => m.OrderModule)},
   {path:'basket', loadChildren:() => import('./basket/basket.module').then(m => m.BasketModule)},
+  {path:'account', loadChildren:() => import('./account/account.module').then(m => m.AccountModule)},
   {path:'**', redirectTo:'', pathMatch:'full'}
 ];
 

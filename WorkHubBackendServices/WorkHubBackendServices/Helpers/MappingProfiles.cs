@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using WorkHubBackEndServices.Dtos;
 using WorkHubBackEndServices.Models;
+using WorkHubBackEndServices.Models.Identity;
 
 namespace WorkHubBackEndServices.Helpers
 {
@@ -10,6 +11,7 @@ namespace WorkHubBackEndServices.Helpers
         {
             CreateMap<Item, ItemToReturnDto>()
                 .ForMember(d => d.Category, o => o.MapFrom(s => s.Category.Name));
+            CreateMap<EmployeeDetails, EmployeeDetailsDto>().ReverseMap();
         }
     }
 }

@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WorkHubBackEndServices.Models.Identity
+namespace WorkHubBackEndServices.Dtos
 {
-    public class EmployeeDetails
+    public class EmployeeDetailsDto
     {
-        public int Id { get; set; }
 
         public string FirstName { get; set; }
 
@@ -14,9 +13,5 @@ namespace WorkHubBackEndServices.Models.Identity
 
         public string Department { get; set; }
 
-        [Required]
-        public string AppUserId { get; set; }
-
-        public AppUser AppUser { get; set; }    
     }
 }
