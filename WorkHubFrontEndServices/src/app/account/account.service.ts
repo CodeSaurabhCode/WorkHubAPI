@@ -38,6 +38,5 @@ export class AccountService {
     localStorage.removeItem('token')
     this.currentUserSource.next(null);
     this.router.navigateByUrl('/')
-
   }
 }
