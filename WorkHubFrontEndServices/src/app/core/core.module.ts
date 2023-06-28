@@ -18,7 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   exports: [
-    NavBarComponent,
+    NavBarComponent
   ]
 })
 export class CoreModule { }

@@ -13,6 +13,7 @@ export class AccountService {
 
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
+  token?: string;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -21,6 +22,7 @@ export class AccountService {
       map(user => {
         localStorage.setItem('token', user.token);
         this.currentUserSource.next(user);
+        this.token = user.token
       })
     )
   }
@@ -39,4 +41,5 @@ export class AccountService {
     this.currentUserSource.next(null);
     this.router.navigateByUrl('/')
   }
+
 }

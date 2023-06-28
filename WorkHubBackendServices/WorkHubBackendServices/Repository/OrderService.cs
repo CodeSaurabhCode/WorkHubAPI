@@ -59,9 +59,9 @@ namespace WorkHubBackEndServices.Repository
             return await _orderRepo.GetEntityWithSpec(spec);
         }
 
-        public async Task<IReadOnlyList<Order>> GetOrdersForEmployeeAsync(string employeeEmail)
+        public async Task<IReadOnlyList<Order>> GetOrdersForEmployeeAsync(string employeeEmail, OrderSpecParams pageParams)
         {
-            var spec = new OrdersSpecifications(employeeEmail);
+            var spec = new OrdersSpecifications(employeeEmail, pageParams);
 
             return await _orderRepo.ListAsync(spec);
         }
