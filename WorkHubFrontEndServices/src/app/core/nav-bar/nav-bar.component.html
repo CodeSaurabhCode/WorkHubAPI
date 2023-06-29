@@ -9,7 +9,7 @@
   </div>
   <div class="navbar-right">
     <div class="cart-basket">
-      <span class="cart-count">3</span>
+      <span *ngIf = "(basketService.basketSource$ | async) as basket" class="cart-count">{{basket.items.length}}</span>
       <i routerLink="/basket" class="fa fa-shopping-cart fa-2x mr-5 p-2 text-dark"></i>
     </div>
     <ng-container *ngIf="(accountService.currentUser$ | async) === null">

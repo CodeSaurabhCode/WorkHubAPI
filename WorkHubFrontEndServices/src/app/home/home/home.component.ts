@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/account/account.service';
 import { Order } from 'src/app/shared/models/orders';
 import { HomeService } from '../home.service';
+import { OrderParams } from 'src/app/shared/models/orderParams';
 
 @Component({
   selector: 'app-home',
@@ -10,23 +11,45 @@ import { HomeService } from '../home.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  orders: Order[] = [];
+  pageNumber?:number;
+  pageSize?:number
+  totalCount:number=0
+  orderParams = new OrderParams();
 
-    constructor(private homeService: HomeService, public accountService: AccountService){}
 
-    orders = this.homeService.orders
-    totalCount = this.homeService.totalCount
-    pageSize = this.homeService.pageSize
-    pageNumber = this.homeService.pageNumber
+  constructor(private homeService: HomeService, public accountService: AccountService){}
+  token = this.accountService.token
+  ngOnInit(): void {
+    this.getOrders()
+    console.log(this.orders)
+  }
 
-    user$ = this.accountService.currentUser$
-    ngOnInit(): void {
-      this.getOrders()
+  getOrders(){
+    this.homeService.getOrders(this.orderParams, this.token).subscribe({
+      next : responce => {
+        this.orders = responce.data;
+        this.orderParams.pageNumber = responce.pageIndex;
+        this.orderParams.pageSize = responce.pageSize;
+        this.totalCount = responce.count;
+      },
+      error : error => console.log(error)
+    })  
+  }
+
+  onPageChanged(event:any){
+    if (this.orderParams.pageNumber !== event){
+      this.orderParams.pageNumber = event;
+      this.getOrders();
     }
+  }
 
-    getOrders(){
-      this.homeService.getOrders()
-    }
+  changeDateFormat(){
+    
+  }
 
 
 
+
+  
 }

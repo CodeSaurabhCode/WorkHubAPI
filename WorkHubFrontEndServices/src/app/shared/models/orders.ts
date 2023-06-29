@@ -2,7 +2,7 @@ export interface Order{
     id: number;
     employeeEmail: string;
     orderDate: Date;
-    orderForDate: Date;
+    orderedForDate: Date;
     orderType: string;
     orderItems: OrderItems[];
     orderStatus: string;
