@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Horizontal Form</title>
+  <style>
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container form {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-container label {
+      margin-right: 10px;
+    }
+
+    .form-container input[type="date"],
+    .form-container select {
+      margin-right: 10px;
+    }
+
+    .form-container input[type="submit"] {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form [formGroup] = "orderForm" (ngSubmit)="onSubmit()">
+      <label for="date">Date:</label>
+      <input formControlName="orderForDate" type="date" id="date" name="date">
+
+      <label for="option">Time:</label>
+      <select formControlName="orderType" id="orderType" name="orderType">
+        <option value=1>Breakfast</option>
+        <option value=2>Lunch</option>
+      </select>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

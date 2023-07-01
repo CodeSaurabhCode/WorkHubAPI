@@ -44,10 +44,8 @@ namespace WorkHubBackEndServices.Repository
             var order = new Order(items, employeeEmail, orderedFordate, orderType);
 
             await _db.orders.AddAsync(order);
-            
-            await _db.SaveChangesAsync();
 
-            await _basket.DeleteBasketAsync(basketId);
+            await _db.SaveChangesAsync();
 
             return order;
         }
@@ -64,6 +62,11 @@ namespace WorkHubBackEndServices.Repository
             var spec = new OrdersSpecifications(employeeEmail, pageParams);
 
             return await _orderRepo.ListAsync(spec);
+        }
+
+        public Task<OrderType> GetOrderTypeByIdAsync(int id)
+        {
+            return _orderType.GetByIdAsync(id);
         }
 
         public async Task<IReadOnlyList<OrderType>> GetOrderTypesAsync()

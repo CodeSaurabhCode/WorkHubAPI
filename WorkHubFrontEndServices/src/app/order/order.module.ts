@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ItemDetailsComponent } from './item-details/item-details.component';
 import { RouterModule } from '@angular/router';
 import { OrderRoutingModule } from './order-routing.module';
+import { OrderForComponent } from './order-for/order-for.component';
 
 
 
@@ -13,7 +14,8 @@ import { OrderRoutingModule } from './order-routing.module';
   declarations: [
     OrderComponent,
     MenuItemComponent,
-    ItemDetailsComponent
+    ItemDetailsComponent,
+    OrderForComponent
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,8 @@ import { Order } from '../shared/models/orders';
 import { __values } from 'tslib';
 import { Pagination } from '../shared/models/pagination';
 import { OrderParams } from '../shared/models/orderParams';
+import { CreateOrder } from '../shared/models/createOrder';
+import { OrderType } from '../shared/models/orderType';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +23,15 @@ export class HomeService {
     params = params.append('pageIndex', orderParams.pageNumber)
     params = params.append('pageSize', orderParams.pageSize)
     return this.http.get<Pagination<Order[]>>(this.baseUrl, {headers, params})
+  }
+
+  createOrder(values: any, token? : string){
+    const headers = { 'Authorization': 'Bearer ' + token }
+    return this.http.post<Order>(this.baseUrl, values, {headers})
+  }
+
+  getOrderType(id?: number, token?: string){
+    const headers = { 'Authorization': 'Bearer ' + token }
+    return this.http.get<OrderType>(this.baseUrl + "/OrderTypes/" + id, {headers})
   }
 }

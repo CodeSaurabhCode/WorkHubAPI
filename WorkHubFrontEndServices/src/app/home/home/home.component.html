@@ -21,8 +21,7 @@
     }
   </style>
 
-  <p *ngIf="(accountService.currentUser$ | async) === null">Please Sign In to see Order History</p>
-
+<h4 *ngIf="(accountService.currentUser$ | async) === null">Please Sign to order history</h4>
   <div *ngIf="(accountService.currentUser$ | async) as user" class="container">
       <div class="row">
           <section class="col-15">
@@ -62,6 +61,7 @@
           <app-pager
           [totalCount]="totalCount"
           [pageSize]="orderParams.pageSize"
+          (pageChanged)="onPageChanged($event)"
           ></app-pager>
       </div>
   </div>

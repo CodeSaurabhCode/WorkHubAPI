@@ -73,6 +73,13 @@ namespace WorkHubBackEndServices.Controllers
             return Ok(await _orderService.GetOrderTypesAsync());
         }
 
+        [HttpGet("OrderTypes/{id}")]
+
+        public async Task<ActionResult<IReadOnlyList<OrderType>>> GetOrderTypes(int id)
+        {
+            return Ok(await _orderService.GetOrderTypeByIdAsync(id));
+        }
+
 
     }
 }

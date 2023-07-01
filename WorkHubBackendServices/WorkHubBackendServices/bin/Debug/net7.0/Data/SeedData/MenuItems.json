@@ -6,7 +6,7 @@
     "CategoryId": 1
   },
   {
- 
+
     "Name": "Paneer Tikka",
     "Description": "Marinated cottage cheese cubes grilled with spices",
     "Price": 180,
@@ -51,5 +51,78 @@
     "Description": "Fragrant rice dish cooked with meat or vegetables and aromatic spices",
     "Price": 220,
     "CategoryId": 2
+  },
+  {
+    "Name": "Gulab Jamun",
+    "Description": "Deep-fried milk dumplings soaked in rose-flavored sugar syrup",
+    "Price": 80,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Aloo Paratha",
+    "Description": "Indian bread stuffed with spiced mashed potatoes",
+    "Price": 90,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Chicken Tikka Masala",
+    "Description": "Grilled chicken simmered in a rich tomato-based curry sauce",
+    "Price": 260,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Pani Puri",
+    "Description": "Crispy hollow puri filled with tangy tamarind water and chickpeas",
+    "Price": 70,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Fish Curry",
+    "Description": "Fresh fish cooked in a flavorful blend of spices and coconut milk",
+    "Price": 280,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Vegetable Biryani",
+    "Description": "Fragrant basmati rice cooked with mixed vegetables and aromatic spices",
+    "Price": 150,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Mutton Rogan Josh",
+    "Description": "Slow-cooked lamb curry with a blend of Kashmiri spices",
+    "Price": 320,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Chicken Korma",
+    "Description": "Chicken cooked in a creamy and aromatic cashew-based sauce",
+    "Price": 240,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Rasgulla",
+    "Description": "Soft and spongy cottage cheese balls soaked in sugar syrup",
+    "Price": 90,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Matar Paneer",
+    "Description": "Peas and paneer cooked in a spiced tomato-based curry",
+    "Price": 160,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Dal Makhani",
+    "Description": "Creamy lentil curry simmered with butter and spices",
+    "Price": 140,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Rajma Chawal",
+    "Description": "Red kidney bean curry served with steamed rice",
+    "Price": 120,
+    "CategoryId": 1
   }
+]
 ]

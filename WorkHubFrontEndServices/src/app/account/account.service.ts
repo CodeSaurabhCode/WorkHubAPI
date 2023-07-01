@@ -37,9 +37,9 @@ export class AccountService {
   }
 
   logout(){
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
     this.currentUserSource.next(null);
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/');
   }
 
 }

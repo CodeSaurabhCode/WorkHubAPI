@@ -3,6 +3,9 @@ import { Item } from '../shared/models/items';
 import { OrderService } from './order.service';
 import { Category } from '../shared/models/category';
 import { OrderParams } from '../shared/models/orderParams';
+import { OrderedForm } from '../shared/models/orderedForm';
+import { BasketService } from '../basket/basket.service';
+import { AccountService } from '../account/account.service';
 
 @Component({
   selector: 'app-order',
@@ -14,14 +17,14 @@ export class OrderComponent implements OnInit {
   Items:Item[] = [];
   Categories:Category[] = [];
   orderParams = new OrderParams();
-
+  orderedForm? : OrderedForm
   totalCount = 0;
 
-  constructor(private orderService : OrderService){}
+  constructor(private orderService : OrderService, private basketService: BasketService,
+    public accountService: AccountService){}
 
   ngOnInit(): void {
-    this.getItems();
-    this.getCategory()
+
   }
 
   getItems(){
@@ -53,6 +56,18 @@ export class OrderComponent implements OnInit {
     if (this.orderParams.pageNumber !== event){
       this.orderParams.pageNumber = event;
       this.getItems();
+    }
+  }
+
+  receiveOrderedForm(data: OrderedForm){
+    this.orderedForm = data;
+    console.log(this.orderedForm)
+    this.getItems()
+    this.basketService.getOrderedFormData(data)
+    if (this.orderedForm.orderType === 1){
+      this.onCategorySelected(1);
+    } else{
+      this.getCategory()
     }
   }
 

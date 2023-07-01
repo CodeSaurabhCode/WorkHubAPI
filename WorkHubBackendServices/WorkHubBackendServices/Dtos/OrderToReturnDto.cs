@@ -10,7 +10,7 @@ namespace WorkHubBackEndServices.Dtos
 
         public DateTime OrderDate { get; set; } 
 
-        public DateTime OrderedForDate { get; set; }
+        public DateTime OrderedForDate { get; set; }    
 
         public string OrderType { get; set; }
 

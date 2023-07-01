@@ -11,6 +11,8 @@ namespace WorkHubBackEndServices.Interfaces
 
         Task<IReadOnlyList<OrderType>> GetOrderTypesAsync();
 
+        Task<OrderType> GetOrderTypeByIdAsync(int id);
+
 
     }
 }

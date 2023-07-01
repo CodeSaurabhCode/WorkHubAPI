@@ -12,7 +12,7 @@ using WorkHubBackEndServices.Data;
 namespace WorkHubBackEndServices.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230627143131_AllMigrations")]
+    [Migration("20230701175349_AllMigrations")]
     partial class AllMigrations
     {
         /// <inheritdoc />
@@ -40,18 +40,6 @@ namespace WorkHubBackEndServices.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Veg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Non-Veg"
-                        });
                 });
 
             modelBuilder.Entity("WorkHubBackEndServices.Models.Item", b =>
@@ -146,18 +134,6 @@ namespace WorkHubBackEndServices.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("OrderTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            TypeName = "Breakfast"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            TypeName = "Lunch"
-                        });
                 });
 
             modelBuilder.Entity("WorkHubBackEndServices.Models.Item", b =>

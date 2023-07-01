@@ -4,19 +4,26 @@ import { Basket, BasketItem } from '../shared/models/basket';
 import { HttpClient } from '@angular/common/http';
 import { BasketModule } from './basket.module';
 import { Item } from '../shared/models/items';
+import { OrderedForm } from '../shared/models/orderedForm';
+import { CreateOrder } from '../shared/models/createOrder';
+import { OrderType } from '../shared/models/orderType';
+import { HomeService } from '../home/home.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasketService {
+  createOrderParams = new CreateOrder()
+  orderedFormData? : OrderedForm
+  orderType: OrderType;
 
   baseUrl = "https://localhost:5001/api/";
-
+  
   private basketSource = new BehaviorSubject<Basket | null>(null);
 
   basketSource$ = this.basketSource.asObservable();
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private homeService: HomeService) { }
 
   getBasket(id:string){
     return this.http.get<Basket>(this.baseUrl + "/Basket?id=" + id).subscribe({
@@ -71,5 +78,27 @@ export class BasketService {
     }
 
   }
+
+  public getOrderedFormData(data : OrderedForm){
+    return this.orderedFormData = data
+  }
+
+  public deleteBasket(id?: string){
+    return this.http.delete(this.baseUrl + "/Basket?id=" + id)
+  }
+
+  removeItemFromBasket(item: BasketItem) {
+    const basket = this.getCurrentBasketValue();
+    if (basket?.items.some(x => x.id === item.id)) {
+      basket.items = basket.items.filter(i => i.id !== item.id);
+      if (basket.items.length > 0) {
+        this.setBasket(basket);
+      } else {
+        this.deleteBasket(basket.id);
+      }
+    }
+  }
+
+  
   
 }
