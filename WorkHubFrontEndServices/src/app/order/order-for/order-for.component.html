@@ -3,10 +3,13 @@
 <head>
   <title>Horizontal Form</title>
   <style>
+    
     .form-container {
-      display: flex;
-      justify-content: center;
+      padding: 15px;
+      height: 100px;
+      width: 1000px;
       align-items: center;
+      margin-bottom: 45px;
     }
 
     .form-container form {
@@ -21,26 +24,58 @@
     .form-container input[type="date"],
     .form-container select {
       margin-right: 10px;
+      height: 40px;
+      width: 120px;
     }
 
     .form-container input[type="submit"] {
       margin-left: 10px;
+      height: 40px;
+      width: 80px;
+      background-color: lightgreen;
+      border: none;
+
     }
+
+    .form-container input[type="submit"]:hover{
+      background-color: green;
+    }
+    .form-container input[type="reset"]:hover{
+      background-color: blue;
+    }
+
+    .form-container input[type="reset"] {
+      margin-left: 10px;
+      height: 40px;
+      width: 80px;
+      background-color: lightblue;
+      border: none;
+
+    }
+    .form-container p{
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+
   </style>
 </head>
 <body>
   <div class="form-container">
+    <p>Select Date & Time to order.</p>
     <form [formGroup] = "orderForm" (ngSubmit)="onSubmit()">
-      <label for="date">Date:</label>
-      <input formControlName="orderForDate" type="date" id="date" name="date">
+      
+      <label for="date">DATE:</label>
+      <input formControlName="orderForDate" type="date" id="date" name="date" required>
 
-      <label for="option">Time:</label>
-      <select formControlName="orderType" id="orderType" name="orderType">
+      <label for="option">TIME:</label>
+      <select formControlName="orderType" id="orderType" name="orderType" required>
         <option value=1>Breakfast</option>
         <option value=2>Lunch</option>
       </select>
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="SUBMIT">
+      <input (click)="onReset()" type="reset" value="RESET">
     </form>
   </div>
 </body>

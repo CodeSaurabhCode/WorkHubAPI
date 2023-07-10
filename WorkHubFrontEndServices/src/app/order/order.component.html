@@ -1,4 +1,15 @@
-<h4 *ngIf="(accountService.currentUser$ | async) === null">Please Sign to order the food</h4>
+<style>
+    h4{
+      border: 1px solid black; 
+      height: 60px;
+      padding: 15px;
+      width: 600px;
+      margin-left: 350px;
+      margin-top: 100px;
+
+    }
+</style>
+<h4 *ngIf="(accountService.currentUser$ | async) === null">PLEASE <strong>LOGIN / SIGN UP</strong> TO ORDER THE FOOD</h4>
 
 <div *ngIf="(accountService.currentUser$ | async) as user">
     <div style="margin-bottom: 20px; margin-top: 30px;">
@@ -7,7 +18,7 @@
     <div class="container">
         <div class="row">
             <section class="col-3">
-                <h5 *ngIf="(orderedForm?.orderType) == 2" class="text-warning ms-3">Category</h5>
+                <h5 *ngIf="(orderedForm?.orderType) === 2" class="text-warning ms-3">Category</h5>
                 <ul class="list-group">
                     <li class="list-group-item" 
                     *ngFor="let category of Categories"
@@ -15,7 +26,7 @@
                     [value] = "category.id"
                     (click) = "onCategorySelected(category.id)"
                     >{{category.name}}</li>
-                </ul> 
+                </ul>
             </section>
             <section class="col-9">
                 <div class="d-flex justify-content-between align-items-center pb-2">

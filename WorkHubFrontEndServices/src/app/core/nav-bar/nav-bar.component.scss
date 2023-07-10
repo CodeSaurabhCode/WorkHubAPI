@@ -2,18 +2,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f2f2f2;
+    background-color: #9b3923;
     padding: 10px;
     margin: 0 auto;
+    height: 80px;
+    
   }
   
   .navbar-left {
     display: flex;
     align-items: center;
+    margin-left: 90px;
+    align-items: center;
   }
   
   .navbar-title {
-    margin-right: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    font-style: normal;
+    font-weight: 7  00;
   }
   
   .navbar-nav {
@@ -28,18 +37,31 @@
   .navbar-nav li {
     margin-right: 10px;
     display: flex;
+    align-items: center;
     
   }
   
-  .navbar-nav li a {
-    display: inline-block;
+  .navbar-nav li a {  
     text-decoration: none;
-    color: #333;
+    color: black;
+    font-size: 20px;
+    padding: 5px;
   }
+  
+  .navbar-nav li:first-child{
+    margin-left: 25px;
+  }
+
+  .navbar-nav li a:hover{
+    border-bottom: 2px red solid;
+  }
+
+
   
   .navbar-right {
     display: flex;
     align-items: center;
+    margin-right: 100px;
   }
   
   .cart-basket {

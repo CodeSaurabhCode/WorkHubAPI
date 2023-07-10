@@ -30,7 +30,7 @@ export class HomeService {
     return this.http.post<Order>(this.baseUrl, values, {headers})
   }
 
-  getOrderType(id?: number, token?: string){
+  getOrderType(id: number, token: string){
     const headers = { 'Authorization': 'Bearer ' + token }
     return this.http.get<OrderType>(this.baseUrl + "/OrderTypes/" + id, {headers})
   }

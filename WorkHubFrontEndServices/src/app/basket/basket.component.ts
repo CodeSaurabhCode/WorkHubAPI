@@ -8,6 +8,7 @@ import { AccountService } from '../account/account.service';
 import { CreateOrder } from '../shared/models/createOrder';
 import { Item } from '../shared/models/items';
 import { OrderType } from '../shared/models/orderType';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basket',
@@ -15,23 +16,37 @@ import { OrderType } from '../shared/models/orderType';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  router: any;
+  basket:Basket;
   basket$ = this.basketService.basketSource$;
   orderType: OrderType;
 
   constructor(public basketService: BasketService, private homeService: HomeService,
-    public accountService: AccountService) { }
+    public accountService: AccountService, private router: Router) { }
   
-  token = this.accountService.token;
-  basketId = this.basketService.getCurrentBasketValue()?.id
+  token = localStorage.getItem('token');
+  basketId = localStorage.getItem('basket_id')
+  orderForDate = localStorage.getItem('orderForDate')
+  orderTyped = localStorage.getItem('orderType')
   ngOnInit() {
-    this.basketService.createOrderParams.basketId = this.basketService.getCurrentBasketValue()?.id,
-    this.basketService.createOrderParams.orderForDate = this.basketService.orderedFormData?.orderForDate,
-    this.basketService.createOrderParams.orderTypeId = this.basketService.orderedFormData?.orderType
+    if(this.basketId){
+      this.basketService.createOrderParams.basketId = this.basketId
+    };
+    
+
+    if(this.orderForDate){
+      this.basketService.createOrderParams.orderForDate = new Date(this.orderForDate);
+      
+    }
+    if(this.orderTyped)
+    this.basketService.createOrderParams.orderTypeId = parseInt(this.orderTyped)
     this.getOrderType()
-    console.log(this.orderType.typeName)
   }
 
+
+  getBasket(){
+    if(this.basketId)
+    this.basketService.getBasket(this.basketId)
+  }
 
 
   removeBasketItem(item: BasketItem) {
@@ -39,17 +54,22 @@ export class BasketComponent implements OnInit {
   }
 
   createOrder(){
+    if(this.token)
     this.homeService.createOrder(this.basketService.createOrderParams, this.token).subscribe({
-      next : () => console.log("OrderPlaced")
-    })
+      next : () => this.router.navigateByUrl('/')
+    })  
 
-    this.basketService.deleteBasket(this.basketId).subscribe({
-      next : () => console.log("BasketDeleted")})
-    this.basketService.getCurrentBasketValue()
-    this.router.navigateByUrl('/');
+    // if(this.basketId)
+    // this.basketService.deleteBasket(this.basketId).subscribe({
+    //   next : () => console.log("BasketDeleted")})
+    localStorage.removeItem('basket_id')
+    localStorage.removeItem('orderForDate')
+    localStorage.removeItem('orderType')
   }
 
   getOrderType(){
+    if(this.token)
+    if(this.basketService.createOrderParams.orderTypeId)
     this.homeService.getOrderType(this.basketService.createOrderParams.orderTypeId, this.token).subscribe({
       next: responce => this.orderType = responce
     })

@@ -1,11 +1,21 @@
-<h4 *ngIf="(accountService.currentUser$ | async) === null">You have not signed in</h4>
+<style>
+    h4{
+      border: 1px solid black; 
+      height: 60px;
+      padding: 15px;
+      width: 500px;
+      
+
+    } 
+</style>
+<h4 *ngIf="(accountService.currentUser$ | async) === null">You have not Signed In</h4>
  
 <div *ngIf="(accountService.currentUser$ | async) as user">
     <div class="container mt-2">
         <div *ngIf="(basketService.basketSource$ | async) === null">
             <p>There are no items in your basket</p>
         </div>
-        <h4>you are ordering for the {{basketService.orderedFormData?.orderForDate}}, {{orderType.typeName}}</h4>
+        <h4>Placing order for <strong>{{orderForDate}} </strong> - <strong *ngIf="(orderTyped === '2')">Lunch</strong><strong *ngIf="(orderTyped === '1')">Breakfast</strong></h4>
         <div *ngIf = "(basketService.basketSource$ | async) as basket">
             <div class="pb-5">
                 <div class="container">

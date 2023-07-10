@@ -14,7 +14,7 @@ import { HomeService } from '../home/home.service';
 })
 export class BasketService {
   createOrderParams = new CreateOrder()
-  orderedFormData? : OrderedForm
+  orderedFormData : OrderedForm
   orderType: OrderType;
 
   baseUrl = "https://localhost:5001/api/";
@@ -22,12 +22,14 @@ export class BasketService {
   private basketSource = new BehaviorSubject<Basket | null>(null);
 
   basketSource$ = this.basketSource.asObservable();
+  
 
   constructor(private http : HttpClient, private homeService: HomeService) { }
 
   getBasket(id:string){
-    return this.http.get<Basket>(this.baseUrl + "/Basket?id=" + id).subscribe({
+    return this.http.get<Basket>(this.baseUrl + "Basket?id=" + id).subscribe({
       next: basket => this.basketSource.next(basket)
+      
     })
   }
 
@@ -84,7 +86,7 @@ export class BasketService {
   }
 
   public deleteBasket(id?: string){
-    return this.http.delete(this.baseUrl + "/Basket?id=" + id)
+    return this.http.delete(this.baseUrl + "Basket?id=" + id)
   }
 
   removeItemFromBasket(item: BasketItem) {

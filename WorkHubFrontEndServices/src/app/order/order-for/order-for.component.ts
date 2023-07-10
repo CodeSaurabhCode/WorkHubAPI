@@ -17,9 +17,19 @@ export class OrderForComponent {
 
   onSubmit(){
     if (this.orderForm.valid) {
+      const formValues = this.orderForm.value;
+      if(formValues.orderForDate)
+      localStorage.setItem('orderForDate', formValues.orderForDate)
+      if(formValues.orderType)
+      localStorage.setItem('orderType', formValues.orderType)
       this.orderedForm.emit(this.orderForm.value);
-      this.orderForm.reset();
     } 
   }
 
+  onReset(){
+    localStorage.removeItem('orderForDate')
+    localStorage.removeItem('orderType')
+    this.orderForm.reset();
+    
+  }
 }

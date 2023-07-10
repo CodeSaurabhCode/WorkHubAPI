@@ -4,6 +4,7 @@ import { AccountService } from 'src/app/account/account.service';
 import { Order } from 'src/app/shared/models/orders';
 import { HomeService } from '../home.service';
 import { OrderParams } from 'src/app/shared/models/orderParams';
+import { BasketService } from 'src/app/basket/basket.service';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,14 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private homeService: HomeService, public accountService: AccountService){}
-  token = this.accountService.token
+  token = localStorage.getItem('token')
   ngOnInit(): void {
     this.getOrders()
     console.log(this.orders)
   }
 
   getOrders(){
+    if(this.token)
     this.homeService.getOrders(this.orderParams, this.token).subscribe({
       next : responce => {
         this.orders = responce.data;
@@ -44,12 +46,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  
+
   changeDateFormat(){
     
   }
-
-
-
-
-  
 }

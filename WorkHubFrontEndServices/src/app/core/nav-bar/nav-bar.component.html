@@ -1,6 +1,7 @@
 <nav class="navbar">
   <div class="navbar-left">
-    <h1 class="navbar-title">WORKHUB</h1>
+    <img src="assets/kongsberg.png" alt="" height="60px">
+    <a class="navbar-title">WORKHUB</a>
     <ul class="navbar-nav">
       <li><a routerLink = '/'
         routerLinkActive="active">HOME</a></li>
@@ -8,9 +9,9 @@
     </ul>
   </div>
   <div class="navbar-right">
-    <div class="cart-basket">
+    <div class="cart-basket" *ngIf="(accountService.currentUser$ | async)">
       <span *ngIf = "(basketService.basketSource$ | async) as basket" class="cart-count">{{basket.items.length}}</span>
-      <i routerLink="/basket" class="fa fa-shopping-cart fa-2x mr-5 p-2 text-dark"></i>
+      <i routerLink="/basket" style="cursor: pointer;" class="fa fa-shopping-cart fa-2x mr-5 p-2 text-dark"></i>
     </div>
     <ng-container *ngIf="(accountService.currentUser$ | async) === null">
       <button routerLink="/account/register"  class="btn-signup">Sign Up</button>
